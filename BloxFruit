@@ -1,0 +1,48 @@
+-- Tạo một Frame để chứa hình ảnh và TextLabel
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0, 400, 0, 200)
+frame.Position = UDim2.new(0.5, -200, 0.5, -100)
+frame.BackgroundTransparency = 0.5
+frame.Parent = screenGui
+
+-- Thêm TextLabel với văn bản "KietScriptHub"
+local textLabel = Instance.new("TextLabel")
+textLabel.Size = UDim2.new(1, 0, 0.2, 0)
+textLabel.Position = UDim2.new(0, 0, 0, 0)
+textLabel.Text = "KietScriptHub"
+textLabel.TextSize = 24
+textLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+textLabel.BackgroundTransparency = 1
+textLabel.Parent = frame
+
+-- Thêm ImageLabel với hình ảnh ID '132892302113739'
+local imageLabel = Instance.new("ImageLabel")
+imageLabel.Size = UDim2.new(0, 100, 0, 100)
+imageLabel.Position = UDim2.new(0.5, -50, 0.5, -50)
+imageLabel.Image = "https://www.robloxlibrary.com/asset/?id=132892302113739"
+imageLabel.BackgroundTransparency = 1
+imageLabel.Parent = frame
+
+-- Tạo bộ đếm ngược 5 giây
+local countdown = 5
+local countdownLabel = Instance.new("TextLabel")
+countdownLabel.Size = UDim2.new(0, 200, 0, 50)
+countdownLabel.Position = UDim2.new(0.5, -100, 0.8, 0)
+countdownLabel.Text = "Loading in " .. countdown .. " seconds..."
+countdownLabel.TextSize = 18
+countdownLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+countdownLabel.BackgroundTransparency = 1
+countdownLabel.Parent = screenGui
+
+-- Đếm ngược và thực thi mã sau khi hết thời gian
+while countdown > 0 do
+    wait(1)
+    countdown = countdown - 1
+    countdownLabel.Text = "Loading in " .. countdown .. " seconds..."
+end
+
+-- Sau khi đếm ngược xong, thực thi mã loadstring
+loadstring(game:HttpGet("https://raw.githubusercontent.com/KietScriptHub/KietScript.GitHub.io/refs/heads/main/BloxFruitLucky?token=GHSAT0AAAAAAC2ROYSIEDHWHEAYIUK7ZIHQZZ3RT7A"))()
